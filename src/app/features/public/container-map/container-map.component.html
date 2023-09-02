@@ -1,1 +1,15 @@
-<p>container-map works!</p>
+<div class="container title-container">
+    <h2 class="title">The container map in KH: </h2>
+</div>
+
+<div class="container my-5">
+    <google-map [center]="center" width="100%" [zoom]="15">
+        <ng-container *ngIf="containers$ | async as markers">
+            <map-marker *ngFor="let marker of markers" 
+                [position]="{lat: marker.latitude, lng: marker.longitude}"
+                [title]="marker.address"
+                [icon]="(marker.isEmpty ? 'assets/empty-container.png' : 'assets/full-container.png')">
+            </map-marker>
+        </ng-container>
+    </google-map>
+</div>
