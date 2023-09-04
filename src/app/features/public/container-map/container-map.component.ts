@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Container } from './models/container.model';
 import { ContainerService } from './services/container.service';
+import { OverlayPanel } from 'primeng/overlaypanel';
 
 const KharkivCoords: google.maps.LatLngLiteral = {
   lat: 49.988358,
@@ -15,8 +16,13 @@ const KharkivCoords: google.maps.LatLngLiteral = {
 })
 export class ContainerMapComponent {
   center: google.maps.LatLngLiteral = KharkivCoords;
+  userLocationAvailable: boolean = false;
   containers$?: Observable<Container[]>;
-  
+
+  @ViewChild('op') overlayPanel?: OverlayPanel;
+  selectedMarker: any; // Выбранная метка
+
+
   constructor(private readonly containerService: ContainerService) {}
 
   ngOnInit() {
@@ -25,8 +31,14 @@ export class ContainerMapComponent {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       };
+      this.userLocationAvailable = true;
     });
 
     this.containers$ = this.containerService.getAllContainers();
+  }
+
+  showInfoWindow(marker: Container, $event: any) {
+    this.selectedMarker = marker;
+    this.overlayPanel?.toggle($event.domEvent);
   }
 }

@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './features/auth/login/login.component';
 import { ContainerMapComponent } from './features/public/container-map/container-map.component';
 import { GoogleMapsModule } from '@angular/google-maps'
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { GoogleMapsModule } from '@angular/google-maps'
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    OverlayPanelModule,
     HttpClientModule,
     GoogleMapsModule
   ],
