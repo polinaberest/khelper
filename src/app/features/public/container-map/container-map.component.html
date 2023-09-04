@@ -4,12 +4,34 @@
 
 <div class="container my-5">
     <google-map [center]="center" width="100%" [zoom]="15">
+
+        <map-marker *ngIf="userLocationAvailable" [position]="center" [title]="'Your Location'"  
+        [icon]="'assets/geolocation.png'"></map-marker>
+
         <ng-container *ngIf="containers$ | async as markers">
-            <map-marker *ngFor="let marker of markers" 
-                [position]="{lat: marker.latitude, lng: marker.longitude}"
-                [title]="marker.address"
+            <map-marker *ngFor="let marker of markers" (mapClick)="showInfoWindow(marker, $event)" [clickable]="true"
+                [position]="{lat: marker.latitude, lng: marker.longitude}" [title]="marker.address"
                 [icon]="(marker.isEmpty ? 'assets/empty-container.png' : 'assets/full-container.png')">
             </map-marker>
         </ng-container>
+
+        <p-overlayPanel #op>
+            <ng-template pTemplate="content" style="position: relative; top: 50%; left: 50%">
+
+                <h5>Container #{{ selectedMarker?.id }} : {{ selectedMarker?.address }}</h5>
+
+                <ng-container *ngIf="selectedMarker.isEmpty; else fullContainer ">
+                    <p>This container is <span class="text-success fw-bold">currently empty: <br>available for use </span> for your request.</p>
+                </ng-container>
+
+                <ng-template #fullContainer>
+                    <p>This container is <span class="text-danger fw-bold">currently taken</span>. <br>Please, <span class="text-danger fw-bold">select another one</span> to fulfill a request.</p>
+                </ng-template>
+
+                <p class="text-muted fw-lighter">{{ selectedMarker?.latitude}}, {{ selectedMarker?.longitude }}</p>
+            </ng-template>
+
+        </p-overlayPanel>
+
     </google-map>
 </div>
