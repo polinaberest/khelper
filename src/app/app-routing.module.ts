@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './features/public/home/home.component';
 import { LoginComponent } from './features/auth/login/login.component';
 import { ContainerMapComponent } from './features/public/container-map/container-map.component';
+import { RequestDetailsComponent } from './features/public/request-details/request-details.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path:'container-map',
     component: ContainerMapComponent
+  },
+  {
+    path:'request-details/:id',
+    component: RequestDetailsComponent
   }
 ];
 

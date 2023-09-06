@@ -14,6 +14,8 @@ import { LoginComponent } from './features/auth/login/login.component';
 import { ContainerMapComponent } from './features/public/container-map/container-map.component';
 import { GoogleMapsModule } from '@angular/google-maps'
 import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { RequestDetailsComponent } from './features/public/request-details/request-details.component';
+import { FormatTextPipe } from './format-text.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
     PostSummaryComponent,
     FooterComponent,
     LoginComponent,
-    ContainerMapComponent
+    ContainerMapComponent,
+    RequestDetailsComponent,
+    FormatTextPipe
   ],
   imports: [
     BrowserModule,
