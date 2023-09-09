@@ -1,49 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { RequestPost } from '../models/requestpost.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { User } from 'src/app/features/auth/models/user.model';
-import { userMock } from 'src/app/features/auth/services/auth.service';
-import { UpdateRequestPost } from '../models/update-requestpost.model';
+import { UploadImageResponse } from '../models/uploadImageRequest.model copy';
+import { UploadImageRequest } from '../models/uploadImageRequest.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ImageService {
-
   constructor(private http: HttpClient) {}
 
-  // getAllRequestPosts(): Observable<RequestPost[]> {
-  //   return of(this.hardcodedPostsMockData);
-  //   // this.http.get<RequestPost[]>(
-  //   //   `${environment.apiBaseUrl}/api/requests`
-  //   // );
-  // }
+  public uploadImage(image: File): Observable<UploadImageResponse> {
+    // Mocked behavior. Remove when backend is implemented.
+    return of({ imageUrl: URL.createObjectURL(image) });
 
-  // getRequestById(id: string): Observable<RequestPost> {
-  //   //return this.http.get<RequestPost>(`${environment.apiBaseUrl}/api/requests/${id}`);
-  //   return of(
-  //     this.hardcodedPostsMockData.find((post) => post.id === id) as RequestPost
-  //   );
-  // }
+    const body: UploadImageRequest = { image };
 
-  // getAllUsersRequests(userId: string): Observable<RequestPost[]> {
-  //   return of(
-  //     this.hardcodedPostsMockData.filter((post) => post.author.id === userId)
-  //   );
-  // }
-
-  // addVolunteerToRequest(id: string, volunteer: User): Observable<RequestPost> {
-  //   const url = `${environment.apiBaseUrl}/api/requests/${id}/addVolunteer`;
-  //   return this.http.post<RequestPost>(url, { volunteer });
-  // }
-
-  // updateRequest(id: string, updatedRequest: UpdateRequestPost): Observable<RequestPost> {
-  //   return this.http.put<RequestPost>(`${environment.apiBaseUrl}/api/blogposts/${id}?addAuth=true`, updatedRequest);
-  // }
-
-  // deleteRequest(id: string): Observable<BlogPost> {
-  //   return this.http.delete<BlogPost>(`${environment.apiBaseUrl}/api/blogposts/${id}?addAuth=true`);
-  // }
+    return this.http.post<UploadImageResponse>(
+      `${environment.apiBaseUrl}/api/images`,
+      body
+    );
+  }
 }
