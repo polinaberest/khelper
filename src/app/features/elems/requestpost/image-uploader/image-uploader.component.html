@@ -1,0 +1,15 @@
+<p-fileUpload
+  [multiple]="false"
+  [auto]="true"
+  accept="image/*"
+  [maxFileSize]="1000000"
+  [customUpload]="true"
+  (uploadHandler)="this.uploadHandlerCallback($event)"
+>
+  <ng-template pTemplate="toolbar">
+    <div class="py-3">{{ this.imageDescription }}</div>
+  </ng-template>
+  <ng-template pTemplate="file">
+    <p-image [src]="this.imageUrl" alt="Featured Image" height="500"></p-image>
+  </ng-template>
+</p-fileUpload>

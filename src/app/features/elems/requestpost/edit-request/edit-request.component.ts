@@ -30,14 +30,12 @@ export class EditRequestComponent implements OnInit, OnDestroy {
   updateRequestSubscription?: Subscription;
   getRequestSubscription?: Subscription;
   deleteRequestSubscription?: Subscription;
-  uploadImageSubscription?: Subscription;
 
   constructor(
     private route: ActivatedRoute,
     private requestService: RequestPostService,
     private categoryService: CategoryService,
     private containerService: ContainerService,
-    private imageService: ImageService,
     private router: Router
   ) {}
 
@@ -46,7 +44,6 @@ export class EditRequestComponent implements OnInit, OnDestroy {
     this.updateRequestSubscription?.unsubscribe();
     this.getRequestSubscription?.unsubscribe();
     this.deleteRequestSubscription?.unsubscribe();
-    this.uploadImageSubscription?.unsubscribe();
   }
 
   ngOnInit(): void {
@@ -110,16 +107,9 @@ export class EditRequestComponent implements OnInit, OnDestroy {
     }
   }
 
-  uploadHandlerCallback($event: FileUploadHandlerEvent): void {
-    const uploadedFile = $event.files[0];
-    if (uploadedFile) {
-      this.uploadImageSubscription = this.imageService
-        .uploadImage(uploadedFile)
-        .subscribe(({ imageUrl }) => {
-          if (this.model) {
-            this.model.featuredImageUrl = imageUrl;
-          }
-        });
+  onImageUpload(imageUrl: string): void {
+    if (this.model) {
+      this.model.featuredImageUrl = imageUrl;
     }
   }
 }

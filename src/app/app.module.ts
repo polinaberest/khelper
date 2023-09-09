@@ -20,6 +20,7 @@ import { RequestsListComponent } from './features/elems/requestpost/requests-lis
 import { EditRequestComponent } from './features/elems/requestpost/edit-request/edit-request.component';
 import { ImageModule } from 'primeng/image';
 import { FileUploadModule } from 'primeng/fileupload';
+import { ImageUploaderComponent } from './features/elems/requestpost/image-uploader/image-uploader.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FileUploadModule } from 'primeng/fileupload';
     RequestDetailsComponent,
     FormatTextPipe,
     RequestsListComponent,
-    EditRequestComponent
+    EditRequestComponent,
+    ImageUploaderComponent
   ],
   imports: [
     BrowserModule,

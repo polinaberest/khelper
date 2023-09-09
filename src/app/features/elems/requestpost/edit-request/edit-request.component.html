@@ -30,16 +30,11 @@
                 <div class="mt-3">
                     <label for="featuredImageUrl" class="form-label">Featured Image</label>
                         
-                    <p-fileUpload name="myfile[]" [multiple]="false" [auto]="true"
-                        accept="image/*" [maxFileSize]="1000000"
-                        [customUpload]="true" (uploadHandler)="this.uploadHandlerCallback($event)">
-                        <ng-template pTemplate="toolbar">
-                            <div class="py-3">Add image related to your request</div>
-                        </ng-template>
-                        <ng-template pTemplate="file">
-                            <p-image [src]="this.model.featuredImageUrl" alt="Featured Image" height="500"></p-image>
-                        </ng-template>
-                    </p-fileUpload>
+                    <app-image-uploader 
+                        [imageUrl]="this.model.featuredImageUrl"
+                        [imageDescription]="'Add image related to your request'" 
+                        (onImageUpload)="this.onImageUpload($event)" 
+                    />
                 </div>
 
                 <div class="mt-3">
