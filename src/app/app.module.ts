@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './features/auth/login/login.component';
 import { ContainerMapComponent } from './features/public/container-map/container-map.component';
-import { GoogleMapsModule } from '@angular/google-maps'
+import { GoogleMapsModule } from '@angular/google-maps';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { RequestDetailsComponent } from './features/public/request-details/request-details.component';
 import { FormatTextPipe } from './format-text.pipe';
@@ -20,7 +20,7 @@ import { RequestsListComponent } from './features/elems/requestpost/requests-lis
 import { EditRequestComponent } from './features/elems/requestpost/edit-request/edit-request.component';
 import { ImageModule } from 'primeng/image';
 import { FileUploadModule } from 'primeng/fileupload';
-import { ImageUploaderComponent } from './features/elems/requestpost/image-uploader/image-uploader.component';
+import { ImageUploaderComponent } from './features/elems/common/image-uploader/component/image-uploader.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { ImageUploaderComponent } from './features/elems/requestpost/image-uploa
     FormatTextPipe,
     RequestsListComponent,
     EditRequestComponent,
-    ImageUploaderComponent
+    ImageUploaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,9 +46,9 @@ import { ImageUploaderComponent } from './features/elems/requestpost/image-uploa
     ImageModule,
     FileUploadModule,
     HttpClientModule,
-    GoogleMapsModule
+    GoogleMapsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

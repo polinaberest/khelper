@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { UploadImageResponse } from '../models/uploadImageRequest.model copy';
+import { UploadImageResponse } from '../models/uploadImageResponse.model';
 import { UploadImageRequest } from '../models/uploadImageRequest.model';
 
 @Injectable({

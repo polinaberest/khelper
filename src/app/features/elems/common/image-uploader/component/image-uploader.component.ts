@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ImageService } from '../services/image.service';
 import { Subscription } from 'rxjs';
 import { FileUploadHandlerEvent } from 'primeng/fileupload';
+import { ImageService } from '../services/image.service';
 
 @Component({
   selector: 'app-image-uploader',

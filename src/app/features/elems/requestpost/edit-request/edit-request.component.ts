@@ -10,7 +10,7 @@ import { UpdateRequestPost } from '../models/update-requestpost.model';
 import { Container } from 'src/app/features/public/container-map/models/container.model';
 import { ContainerService } from 'src/app/features/public/container-map/services/container.service';
 import { FileUploadHandlerEvent } from 'primeng/fileupload';
-import { ImageService } from '../services/image.service';
+import { ImageService } from '../../common/image-uploader/services/image.service';
 
 @Component({
   selector: 'app-edit-request',
