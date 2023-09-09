@@ -229,6 +229,10 @@ export class RequestPostService {
     return of(this.hardcodedPostsMockData.find(post => post.id === id) as RequestPost);
   }
 
+  getAllUsersRequests(volunteer: User): Observable<RequestPost[]> {
+
+  }
+
   addVolunteerToRequest(id: string, volunteer: User): Observable<RequestPost> {
     const url = `${environment.apiBaseUrl}/api/requests/${id}/addVolunteer`;
     return this.http.post<RequestPost>(url, { volunteer });

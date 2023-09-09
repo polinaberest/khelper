@@ -16,6 +16,8 @@ import { GoogleMapsModule } from '@angular/google-maps'
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { RequestDetailsComponent } from './features/public/request-details/request-details.component';
 import { FormatTextPipe } from './format-text.pipe';
+import { RequestsListComponent } from './features/elems/requestpost/requests-list/requests-list.component';
+import { EditRequestComponent } from './features/elems/requestpost/edit-request/edit-request.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { FormatTextPipe } from './format-text.pipe';
     LoginComponent,
     ContainerMapComponent,
     RequestDetailsComponent,
-    FormatTextPipe
+    FormatTextPipe,
+    RequestsListComponent,
+    EditRequestComponent
   ],
   imports: [
     BrowserModule,

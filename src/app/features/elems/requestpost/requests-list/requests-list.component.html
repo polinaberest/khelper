@@ -1,0 +1,40 @@
+<div class="container">
+
+    <h1 class="mt-3">My requests</h1>
+
+    <div class="d-flex justify-content-end mt-4">
+        <!-- Тут, наверное, нужно как-то айдишник передать?-->
+        <a [routerLink]="['/requests/add']" class="btn btn-warning">Make a new Request</a>
+    </div>
+
+    <ng-container *ngIf="requestPosts$ | async as requestPosts">
+        <table class="table mt-3 table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Short description</th>
+                    <th>Is Visible?</th>
+                    <th>Author</th>
+                    <th>Categories</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let request of requestPosts">
+                    <td>{{request.title}}</td>
+                    <td>{{request.shortDescription}}</td>
+                    <td>{{request.untilDate | date:'dd.MM.yyyy'}}</td>
+                    <td>
+                        <span *ngFor="let category of request.categories">
+                            <span class="badge bg-secondary m-1">{{category.name}}</span>
+                        </span>
+                    </td>
+                    <td>
+                        <a [routerLink]="['/requests', request.id]" class="btn btn-outline-warning">Edit the request</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+
+</div>
