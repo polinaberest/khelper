@@ -7,40 +7,47 @@ import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
   model: LoginRequest;
 
-  constructor(private authService: AuthService,
+  constructor(
+    private authService: AuthService,
     private cookieService: CookieService,
-    private router: Router) {
+    private router: Router
+  ) {
     this.model = {
       email: '',
-      password: ''
+      password: '',
     };
   }
 
   onFormSubmit(): void {
-    this.authService.login(this.model)
-    .subscribe({
-      next: (response) => {
+    this.authService.login(this.model).subscribe({
+      next: ({ id, email, name, roles, token }) => {
         // set auth cookie
-        this.cookieService.set('Authorization', `Bearer ${response.token}`,
-        undefined, '/', undefined, true, 'Strict');
-
-        // set User 
-        this.authService.setUser(
-          {
-            email: response.email,
-            name: response.name,
-            roles: response.roles
-          }
+        this.cookieService.set(
+          'Authorization',
+          `Bearer ${token}`,
+          undefined,
+          '/',
+          undefined,
+          true,
+          'Strict'
         );
+
+        // set User
+        this.authService.setUser({
+          id,
+          email,
+          name,
+          roles,
+        });
 
         // redirect to Home page after login
         this.router.navigateByUrl('/');
-      }
+      },
     });
   }
 }

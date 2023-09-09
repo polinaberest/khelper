@@ -4,6 +4,7 @@ import { RequestPost } from '../models/requestpost.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from 'src/app/features/auth/models/user.model';
+import { userMock } from 'src/app/features/auth/services/auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,28 +18,26 @@ export class RequestPostService {
       content: 'Содержание поста 1',
       featuredImageUrl: 'url_изображения_1',
       urlHandle: 'url_handle_1',
-      author: {
-        email: 'author@example.com',
-        name: 'Автор поста',
-        roles: ['Writer'],
-      },
+      author: userMock,
       volunteer: null,
-      categories: [{
-        id: '1',
-        name: 'medicine',
-        urlHandle: 'url_handle_1'
-      }, 
-      {
-        id: '2',
-        name: 'clothes',
-        urlHandle: 'url_handle_2'
-      }],
+      categories: [
+        {
+          id: '1',
+          name: 'medicine',
+          urlHandle: 'url_handle_1',
+        },
+        {
+          id: '2',
+          name: 'clothes',
+          urlHandle: 'url_handle_2',
+        },
+      ],
       desiredContainer: {
         id: 111,
-        address: "Холодногірська, 11",
+        address: 'Холодногірська, 11',
         latitude: 150,
         longitude: 140,
-        isEmpty: true
+        isEmpty: true,
       },
       publishDate: new Date('2023-08-29'),
       updateDate: new Date('2023-08-30'),
@@ -50,26 +49,31 @@ export class RequestPostService {
       id: '2',
       title: 'Заголовок поста 2',
       shortDescription: 'Краткое описание поста 2',
-      content: 'Содержание поста 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. \nBeatae cum aspernatur voluptas ducimus officia, quae consectetur deleniti blanditiis temporibus quaerat cupiditate nulla repudiandae odio accusantium? Quasi omnis nam nulla perspiciatis!' + '<br>Содержание поста 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. \nBeatae cum aspernatur voluptas ducimus officia, quae consectetur deleniti blanditiis temporibus quaerat cupiditate nulla repudiandae odio accusantium? Quasi omnis nam nulla perspiciatis!',
+      content:
+        'Содержание поста 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. \nBeatae cum aspernatur voluptas ducimus officia, quae consectetur deleniti blanditiis temporibus quaerat cupiditate nulla repudiandae odio accusantium? Quasi omnis nam nulla perspiciatis!' +
+        '<br>Содержание поста 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. \nBeatae cum aspernatur voluptas ducimus officia, quae consectetur deleniti blanditiis temporibus quaerat cupiditate nulla repudiandae odio accusantium? Quasi omnis nam nulla perspiciatis!',
       featuredImageUrl: 'url_изображения_2',
       urlHandle: 'url_handle_2',
       author: {
+        id: '0fb92467-10d4-4e2b-8879-71a8d8c015e2',
         email: 'author2@example.com',
         name: 'Автор 2',
         roles: ['Writer'],
       },
       volunteer: null,
-      categories: [{
-        id: '1',
-        name: 'medicine',
-        urlHandle: 'url_handle_1'
-      }],
+      categories: [
+        {
+          id: '1',
+          name: 'medicine',
+          urlHandle: 'url_handle_1',
+        },
+      ],
       desiredContainer: {
         id: 111,
-        address: "Холодногірська, 11",
+        address: 'Холодногірська, 11',
         latitude: 150,
         longitude: 140,
-        isEmpty: true
+        isEmpty: true,
       },
       publishDate: new Date('2023-08-28'),
       updateDate: new Date('2023-08-29'),
@@ -84,24 +88,22 @@ export class RequestPostService {
       content: 'Содержание поста 1',
       featuredImageUrl: 'url_изображения_1',
       urlHandle: 'url_handle_1',
-      author: {
-        email: 'author3@example.com',
-        name: 'Автор поста 3',
-        roles: ['Writer'],
-      },
+      author: userMock,
       desiredContainer: {
         id: 111,
-        address: "Холодногірська, 11",
+        address: 'Холодногірська, 11',
         latitude: 150,
         longitude: 140,
-        isEmpty: true
+        isEmpty: true,
       },
       volunteer: null,
-      categories: [{
-        id: '2',
-        name: 'clothes',
-        urlHandle: 'url_handle_2'
-      }],
+      categories: [
+        {
+          id: '2',
+          name: 'clothes',
+          urlHandle: 'url_handle_2',
+        },
+      ],
       publishDate: new Date('2023-08-29'),
       updateDate: new Date('2023-08-30'),
       untilDate: new Date('2023-08-31'),
@@ -117,26 +119,30 @@ export class RequestPostService {
       urlHandle: 'url_handle_2',
       desiredContainer: {
         id: 111,
-        address: "Холодногірська, 11",
+        address: 'Холодногірська, 11',
         latitude: 150,
         longitude: 140,
-        isEmpty: true
+        isEmpty: true,
       },
       author: {
+        id: '0fb92467-10d4-4e2b-8879-71a8d8c015e4',
         email: 'author4@example.com',
         name: 'Автор поста4',
         roles: ['Writer'],
       },
       volunteer: null,
-      categories: [{
-        id: '1',
-        name: 'medicine',
-        urlHandle: 'url_handle_1'
-      }, {
-        id: '2',
-        name: 'clothes',
-        urlHandle: 'url_handle_2'
-      }],
+      categories: [
+        {
+          id: '1',
+          name: 'medicine',
+          urlHandle: 'url_handle_1',
+        },
+        {
+          id: '2',
+          name: 'clothes',
+          urlHandle: 'url_handle_2',
+        },
+      ],
       publishDate: new Date('2023-08-28'),
       updateDate: new Date('2023-08-29'),
       untilDate: new Date('2023-08-31'),
@@ -152,26 +158,25 @@ export class RequestPostService {
       urlHandle: 'url_handle_1',
       desiredContainer: {
         id: 111,
-        address: "Холодногірська, 11",
+        address: 'Холодногірська, 11',
         latitude: 150,
         longitude: 140,
-        isEmpty: true
+        isEmpty: true,
       },
-      author: {
-        email: 'author5@example.com',
-        name: 'Автор поста5',
-        roles: ['Writer'],
-      },
+      author: userMock,
       volunteer: null,
-      categories: [{
-        id: '1',
-        name: 'medicine',
-        urlHandle: 'url_handle_1'
-      }, {
-        id: '3',
-        name: 'food',
-        urlHandle: 'url_handle_2'
-      }],
+      categories: [
+        {
+          id: '1',
+          name: 'medicine',
+          urlHandle: 'url_handle_1',
+        },
+        {
+          id: '3',
+          name: 'food',
+          urlHandle: 'url_handle_2',
+        },
+      ],
       publishDate: new Date('2023-08-29'),
       updateDate: new Date('2023-08-30'),
       untilDate: new Date('2023-08-31'),
@@ -187,26 +192,30 @@ export class RequestPostService {
       urlHandle: 'url_handle_2',
       desiredContainer: {
         id: 111,
-        address: "Холодногірська, 11",
+        address: 'Холодногірська, 11',
         latitude: 150,
         longitude: 140,
-        isEmpty: true
+        isEmpty: true,
       },
       author: {
+        id: '0fb92467-10d4-4e2b-8879-71a8d8c015ef',
         email: 'author6@example.com',
         name: 'Автор поста6',
         roles: ['Writer'],
       },
       volunteer: null,
-      categories: [{
-        id: '1',
-        name: 'medicine',
-        urlHandle: 'url_handle_1'
-      }, {
-        id: '4',
-        name: 'hygiene',
-        urlHandle: 'url_handle_2'
-      }],
+      categories: [
+        {
+          id: '1',
+          name: 'medicine',
+          urlHandle: 'url_handle_1',
+        },
+        {
+          id: '4',
+          name: 'hygiene',
+          urlHandle: 'url_handle_2',
+        },
+      ],
       publishDate: new Date('2023-08-28'),
       updateDate: new Date('2023-08-29'),
       untilDate: new Date('2023-08-31'),
@@ -226,11 +235,15 @@ export class RequestPostService {
 
   getRequestById(id: string): Observable<RequestPost> {
     //return this.http.get<RequestPost>(`${environment.apiBaseUrl}/api/requests/${id}`);
-    return of(this.hardcodedPostsMockData.find(post => post.id === id) as RequestPost);
+    return of(
+      this.hardcodedPostsMockData.find((post) => post.id === id) as RequestPost
+    );
   }
 
-  getAllUsersRequests(volunteer: User): Observable<RequestPost[]> {
-
+  getAllUsersRequests(userId: string): Observable<RequestPost[]> {
+    return of(
+      this.hardcodedPostsMockData.filter((post) => post.author.id === userId)
+    );
   }
 
   addVolunteerToRequest(id: string, volunteer: User): Observable<RequestPost> {

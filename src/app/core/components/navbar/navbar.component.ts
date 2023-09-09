@@ -21,8 +21,6 @@ export class NavbarComponent implements OnInit {
         this.user = user;
       }
     });
-
-    this.user = this.authService.getUser();
   }
 
   onLogout(): void {
