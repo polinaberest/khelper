@@ -18,6 +18,8 @@ import { RequestDetailsComponent } from './features/public/request-details/reque
 import { FormatTextPipe } from './format-text.pipe';
 import { RequestsListComponent } from './features/elems/requestpost/requests-list/requests-list.component';
 import { EditRequestComponent } from './features/elems/requestpost/edit-request/edit-request.component';
+import { ImageModule } from 'primeng/image';
+import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { EditRequestComponent } from './features/elems/requestpost/edit-request/
     AppRoutingModule,
     FormsModule,
     OverlayPanelModule,
+    ImageModule,
+    FileUploadModule,
     HttpClientModule,
     GoogleMapsModule
   ],

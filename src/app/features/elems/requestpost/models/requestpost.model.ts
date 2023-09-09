@@ -8,7 +8,6 @@ export interface RequestPost {
     shortDescription: string;
     content: string;
     featuredImageUrl: string;
-    urlHandle: string;
     author: User;
     volunteer: User | null;
     categories: Category[];

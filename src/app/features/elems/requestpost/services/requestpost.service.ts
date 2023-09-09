@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from 'src/app/features/auth/models/user.model';
 import { userMock } from 'src/app/features/auth/services/auth.service';
+import { UpdateRequestPost } from '../models/update-requestpost.model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,6 @@ export class RequestPostService {
       shortDescription: 'Краткое описание поста 1',
       content: 'Содержание поста 1',
       featuredImageUrl: 'url_изображения_1',
-      urlHandle: 'url_handle_1',
       author: userMock,
       volunteer: null,
       categories: [
@@ -53,7 +53,6 @@ export class RequestPostService {
         'Содержание поста 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. \nBeatae cum aspernatur voluptas ducimus officia, quae consectetur deleniti blanditiis temporibus quaerat cupiditate nulla repudiandae odio accusantium? Quasi omnis nam nulla perspiciatis!' +
         '<br>Содержание поста 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. \nBeatae cum aspernatur voluptas ducimus officia, quae consectetur deleniti blanditiis temporibus quaerat cupiditate nulla repudiandae odio accusantium? Quasi omnis nam nulla perspiciatis!',
       featuredImageUrl: 'url_изображения_2',
-      urlHandle: 'url_handle_2',
       author: {
         id: '0fb92467-10d4-4e2b-8879-71a8d8c015e2',
         email: 'author2@example.com',
@@ -87,7 +86,7 @@ export class RequestPostService {
       shortDescription: 'Краткое описание поста 1',
       content: 'Содержание поста 1',
       featuredImageUrl: 'url_изображения_1',
-      urlHandle: 'url_handle_1',
+
       author: userMock,
       desiredContainer: {
         id: 111,
@@ -116,7 +115,6 @@ export class RequestPostService {
       shortDescription: 'Краткое описание поста 2',
       content: 'Содержание поста 2',
       featuredImageUrl: 'url_изображения_2',
-      urlHandle: 'url_handle_2',
       desiredContainer: {
         id: 111,
         address: 'Холодногірська, 11',
@@ -155,7 +153,6 @@ export class RequestPostService {
       shortDescription: 'Краткое описание поста 1',
       content: 'Содержание поста 1',
       featuredImageUrl: 'url_изображения_1',
-      urlHandle: 'url_handle_1',
       desiredContainer: {
         id: 111,
         address: 'Холодногірська, 11',
@@ -189,7 +186,6 @@ export class RequestPostService {
       shortDescription: 'Краткое описание поста 2',
       content: 'Содержание поста 2',
       featuredImageUrl: 'url_изображения_2',
-      urlHandle: 'url_handle_2',
       desiredContainer: {
         id: 111,
         address: 'Холодногірська, 11',
@@ -249,5 +245,13 @@ export class RequestPostService {
   addVolunteerToRequest(id: string, volunteer: User): Observable<RequestPost> {
     const url = `${environment.apiBaseUrl}/api/requests/${id}/addVolunteer`;
     return this.http.post<RequestPost>(url, { volunteer });
+  }
+
+  updateRequest(id: string, updatedRequest: UpdateRequestPost): Observable<RequestPost> {
+    return this.http.put<RequestPost>(`${environment.apiBaseUrl}/api/requests/${id}?addAuth=true`, updatedRequest);
+  }
+
+  deleteRequest(id: string): Observable<RequestPost> {
+    return this.http.delete<RequestPost>(`${environment.apiBaseUrl}/api/requests/${id}?addAuth=true`);
   }
 }

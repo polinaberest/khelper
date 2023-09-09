@@ -29,7 +29,7 @@ const routes: Routes = [
     component: RequestsListComponent
   },
   {
-    path:'rquests/:id',
+    path:'requests/:id',
     component: EditRequestComponent,
   }
 ];
