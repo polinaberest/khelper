@@ -6,12 +6,12 @@
                 <img [src]="request?.featuredImageUrl" 
                 [title]="request.title" class="img-fluid">
 
-                <h6 class="mt-4 text-danger"><i class="bi bi-fire"></i> To fulfill until {{request.untilDate | date:'dd.MM.yyyy'}}</h6>
+                <h6 class="mt-4 text-danger" i18n><i class="bi bi-fire"></i> To fulfill until {{request.untilDate | date:'dd.MM.yyyy'}}</h6>
                 <h1 class="">{{request.title}}</h1>
 
                 <div class="d-flex justify-content-between mt-4 fw-lighter">
-                    <span>Requested by {{request.author.name}}</span>
-                    <span>Published on {{request.publishDate | date:'dd.MM.yyyy'}}</span>
+                    <span i18n>Requested by {{request.author.name}}</span>
+                    <span i18n>Published on {{request.publishDate | date:'dd.MM.yyyy'}}</span>
                 </div>
 
                 <div *ngIf="request.categories" class="mt-2">
@@ -25,18 +25,18 @@
                 <div class="mt-4 blog-content fs-4"  [innerHTML]="request.content | formatText">
                 </div>
 
-                <div *ngIf="request?.desiredContainer" class="mt-2 blog-content fs-5 fw-bolder">
+                <div *ngIf="request?.desiredContainer" class="mt-2 blog-content fs-5 fw-bolder" i18n>
                     The most convenient container: #{{request?.desiredContainer?.id}} ({{request?.desiredContainer?.address}})
                 </div>
 
                 <div *ngIf="currentUser; else loginToProceed" class="d-flex justify-content-center align-items-center mt-5">
-                    <a (click)="onVolunteerClick(request)" class="btn btn-success btn-lg">
+                    <a (click)="onVolunteerClick(request)" class="btn btn-success btn-lg" i18n>
                         Agree to be the KHelper <span class="emoji" role="img" aria-label="High Five">🖐️</span>
                     </a>
                 </div>
 
                 <ng-template #loginToProceed>
-                    <div class="mt-5 fs-5 fst-italic">
+                    <div class="mt-5 fs-5 fst-italic" i18n>
                     Please, <a [routerLink]="['/login']" class="">
                        log in or register <span class="emoji" role="img" aria-label="High Five">🖐️</span>
                     </a> to be a KHelper!

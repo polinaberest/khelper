@@ -1,5 +1,5 @@
 <div class="container title-container">
-    <h2 class="title">The container map in KH: </h2>
+    <h2 class="title" i18n>The container map in KH: </h2>
 </div>
 
 <div class="container my-5">
@@ -18,14 +18,14 @@
         <p-overlayPanel #op>
             <ng-template pTemplate="content" style="position: relative; top: 50%; left: 50%">
 
-                <h5>Container #{{ selectedMarker?.id }} : {{ selectedMarker?.address }}</h5>
+                <h5 i18n>Container #{{ selectedMarker?.id }} : {{ selectedMarker?.address }}</h5>
 
                 <ng-container *ngIf="selectedMarker.isEmpty; else fullContainer ">
-                    <p>This container is <span class="text-success fw-bold">currently empty: <br>available for use </span> for your request.</p>
+                    <p i18n>This container is <span class="text-success fw-bold">currently empty: <br>available for use </span> for your request.</p>
                 </ng-container>
 
                 <ng-template #fullContainer>
-                    <p>This container is <span class="text-danger fw-bold">currently taken</span>. <br>Please, <span class="text-danger fw-bold">select another one</span> to fulfill a request.</p>
+                    <p i18n>This container is <span class="text-danger fw-bold">currently taken</span>. <br>Please, <span class="text-danger fw-bold">select another one</span> to fulfill a request.</p>
                 </ng-template>
 
                 <p class="text-muted fw-lighter">{{ selectedMarker?.latitude}}, {{ selectedMarker?.longitude }}</p>

@@ -8,7 +8,7 @@
 
         <div class="mb-3"> 
             <!-- Термінова заявка!!! -->
-            <span *ngIf="postSummary?.isUrgent" class="badge bg-danger mx-1"><i class="bi bi-fire"></i> urgent</span>
+            <span *ngIf="postSummary?.isUrgent" class="badge bg-danger mx-1" i18n><i class="bi bi-fire"></i> urgent</span>
 
             <!-- тут сделать цикл -->
             <ng-container *ngFor="let category of postSummary?.categories">
@@ -17,10 +17,10 @@
         </div>
 
         <p class="card-text">{{postSummary?.shortDescription}} </p>
-        <p class="card-text text-center text-muted"> To fulfill till {{postSummary?.untilDate | date:'dd.MM.yyyy'}} </p>
+        <p class="card-text text-center text-muted" i18n> To fulfill till {{postSummary?.untilDate | date:'dd.MM.yyyy'}} </p>
 
         <div class="d-flex justify-content-center align-items-center">
-            <a [routerLink]="['/request-details', postSummary?.id]" class="btn btn-block btn-success btn-block py-2 ">
+            <a [routerLink]="['/request-details', postSummary?.id]" class="btn btn-block btn-success btn-block py-2" i18n>
                 Read more   <i class="bi bi-arrow-right-circle-fill"></i><!-- Read more <span class="emoji" role="img" aria-label="High Five">🖐️</span> -->
             </a>
         </div>
