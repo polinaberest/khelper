@@ -40,7 +40,7 @@
               <a [routerLink]="['/']" class="text-reset" i18n>About the project</a>
             </p>
             <p>
-              <a href="#!" class="text-reset" i18n>Urgent requests</a>
+              <a href="#!" class="text-reset" (click)="toggleFilter()" i18n>Urgent requests</a>
             </p>
             <p>
               <a [routerLink]="['/container-map']" class="text-reset" i18n>Container map</a>
