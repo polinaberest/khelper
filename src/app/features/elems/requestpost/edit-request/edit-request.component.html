@@ -54,16 +54,17 @@
                     <label for="categories" class="form-label">Categories</label><br>
                     <ng-container *ngIf="categories$ | async as categories">
                         <p-multiSelect #multiselect [options]="categories" [(ngModel)]="categoriesIds" name="categories" id="categories" 
-                        class="form-control" 
+                        class="form-control custom-control" 
                         defaultLabel="Select all the suitable categories" optionLabel="name" display="chip"></p-multiSelect>
                     </ng-container>
                 </div>
 
                 <div class="mt-3">
-                    <label for="categories" class="form-label">Desired container</label><br>
+                    <label for="desiredContainer" class="form-label">Desired container</label><br>
                     <ng-container *ngIf="containers$ | async as containers">
                         <p-dropdown [options]="containers" [(ngModel)]="model.desiredContainer" 
-                        placeholder="Select a container where you want to receive help" [editable]="true" optionLabel="address"></p-dropdown>
+                        class="form-control col-12" name="desiredContainer" id="desiredContainer"
+                        [editable]="true" optionLabel="address"></p-dropdown>
                     </ng-container>
                 </div>    
 

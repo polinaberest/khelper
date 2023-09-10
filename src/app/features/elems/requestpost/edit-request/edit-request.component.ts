@@ -24,7 +24,6 @@ export class EditRequestComponent implements OnInit, OnDestroy {
   categories$?: Observable<Category[]>;
   containers$?: Observable<Container[]>;
   categoriesIds?: string[];
-  desiredContainerId?: number;
   requestImageUrl?: string;
 
   routeSubscription?: Subscription;
