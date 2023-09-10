@@ -21,6 +21,8 @@ import { EditRequestComponent } from './features/elems/requestpost/edit-request/
 import { ImageModule } from 'primeng/image';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ImageUploaderComponent } from './features/elems/common/image-uploader/component/image-uploader.component';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { ImageUploaderComponent } from './features/elems/common/image-uploader/c
     FileUploadModule,
     HttpClientModule,
     GoogleMapsModule,
+    MultiSelectModule,
+    DropdownModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

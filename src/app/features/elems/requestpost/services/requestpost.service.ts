@@ -76,13 +76,13 @@ export class RequestPostService {
       },
       publishDate: new Date('2023-08-28'),
       updateDate: new Date('2023-08-29'),
-      untilDate: new Date('2023-08-31'),
+      untilDate: new Date('2023-09-30'),
       isUrgent: false,
       isFulfilled: true,
     },
     {
       id: '3',
-      title: 'Заголовок поста 1',
+      title: 'Заголовок поста 3',
       shortDescription: 'Краткое описание поста 1',
       content: 'Содержание поста 1',
       featuredImageUrl: 'url_изображения_1',
@@ -106,7 +106,7 @@ export class RequestPostService {
       publishDate: new Date('2023-08-29'),
       updateDate: new Date('2023-08-30'),
       untilDate: new Date('2023-08-31'),
-      isUrgent: true,
+      isUrgent: false,
       isFulfilled: false,
     },
     {
@@ -177,7 +177,7 @@ export class RequestPostService {
       publishDate: new Date('2023-08-29'),
       updateDate: new Date('2023-08-30'),
       untilDate: new Date('2023-08-31'),
-      isUrgent: true,
+      isUrgent: false,
       isFulfilled: false,
     },
     {

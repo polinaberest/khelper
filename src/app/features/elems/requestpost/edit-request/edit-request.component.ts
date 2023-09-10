@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { RequestPost } from '../models/requestpost.model';
 import { Category } from '../../category/models/category.model';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
@@ -11,6 +11,7 @@ import { Container } from 'src/app/features/public/container-map/models/containe
 import { ContainerService } from 'src/app/features/public/container-map/services/container.service';
 import { FileUploadHandlerEvent } from 'primeng/fileupload';
 import { ImageService } from '../../common/image-uploader/services/image.service';
+import { MultiSelect } from 'primeng/multiselect';
 
 @Component({
   selector: 'app-edit-request',
@@ -30,6 +31,8 @@ export class EditRequestComponent implements OnInit, OnDestroy {
   updateRequestSubscription?: Subscription;
   getRequestSubscription?: Subscription;
   deleteRequestSubscription?: Subscription;
+
+  @ViewChild('multiSelect', { static: false }) multiselect: MultiSelect | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -63,6 +66,10 @@ export class EditRequestComponent implements OnInit, OnDestroy {
                 this.model = response;
                 //console.log(this.model);
                 this.categoriesIds = response.categories.map((c) => c.id);
+                //console.log(this.categoriesIds);
+                if (this.multiselect) {
+                  this.multiselect.value = this.categoriesIds;
+                }
               },
             });
         }
@@ -71,6 +78,7 @@ export class EditRequestComponent implements OnInit, OnDestroy {
   }
 
   onFormSubmit(): void {
+    console.log(this.model);
     // convert model to request object
     if (this.model && this.id) {
       var updateRequest: UpdateRequestPost = {
@@ -81,7 +89,7 @@ export class EditRequestComponent implements OnInit, OnDestroy {
         isUrgent: this.model.isUrgent,
         updateDate: new Date(),
         categoriesIds: this.categoriesIds ?? [],
-        desiredContainerId: this.desiredContainerId ?? 1,
+        desiredContainerId: this.model.desiredContainer?.id ?? 1,
         untilDate: this.model.untilDate,
       };
 
